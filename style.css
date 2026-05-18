@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    /* Paleta de Invierno */
+    --bg-dark: #0b1528;
+    --bg-light: #1e3a5f;
+    --snow: #ffffff;
+    --ice: #e0f2fe;
+    --primary-cyan: #38bdf8;
+    --primary-cyan-hover: #0ea5e9;
+    
+    /* Efecto Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    /* Fondo con gradiente simulando la noche de invierno */
+    background: radial-gradient(circle at top right, var(--bg-light), var(--bg-dark));
+    color: var(--ice);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem;
+    overflow-x: hidden;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--snow);
+    font-weight: 300;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 800px;
+    z-index: 10;
+}
+
+/* Tarjetas con Efecto de Cristal (Glassmorphism) */
+section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 0.8rem;
+    color: var(--snow);
+}
+
+/* Formularios */
+fieldset {
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Marco sutil que combina con el fondo general */
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--ice);
+    letter-spacing: 0.5px;
+}
+
+input, select {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Marco muy sutil que combina con el cuadro general */
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    color: var(--snow);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para las opciones del desplegable */
+select option {
+    background-color: var(--bg-dark);
+    color: var(--snow);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-cyan);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Clase de Error para validaciones de JavaScript */
+input.input-error, select.input-error {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-cyan-hover));
+    color: var(--snow);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: inherit;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+
+button:hover {
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Tabla Estilizada */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+th {
+    background: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    color: var(--primary-cyan);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+tbody tr {
+    transition: background 0.3s ease;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Contenedor de Nieve */
+#snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    /* Un brillo suave para simular nieve cayendo y captando luz */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    /* La transición es la magia para el movimiento fluido del paraguas */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, top;
+}
+
+@keyframes fall {
+    0% {
+        top: -20px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+    }
+}
